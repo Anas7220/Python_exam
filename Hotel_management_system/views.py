@@ -4,19 +4,36 @@ from rest_framework.renderers import JSONRenderer
 from .models import *
 from django.http import HttpResponse, JsonResponse
 # Create your views here.
+
 def home(request):
-    return HttpResponse('Welcome to Home Page')
+    return render(request,'Home.html')
+
+def Hotelregistration(request):
+    return render(request,'Hregistration.html')
 
 def Hotel_details_pk(request,pk=None):
     user=Hotel.objects.get(id=pk)
     serializer=HotelSerializer(user)
     json_data= JSONRenderer().render(serializer.data)
     return HttpResponse(json_data,content_type='application/json')
-    #return JsonResponse(serializer.data)
+    
 
 def Hotel_details_list(request):
     user=Hotel.objects.all()
     serializer=HotelSerializer(user,many=True)
-    #json_data= JSONRenderer().render(serializer.data)
-    #return HttpResponse(json_data,content_type='application/json')
+    
     return JsonResponse(serializer.data,safe=False)
+
+def userinsert(request):
+    if request.method=='POST':
+        hname=request.POST['hname']
+        cname=request.POST['cname']
+        email=request.POST['email']
+        cno=request.POST['cno']
+        cin=request.POST['cin']
+        cout=request.POST['cout']
+    
+        newuser = Hotel.objects.create(hname=hname,cname=cname,email=email,cno=cno,cin=cin,cout=cout)
+        msg = "User register Successfully"
+        return render(request,'Hregistration.html',{'msg':msg})
+        

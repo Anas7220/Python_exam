@@ -4,6 +4,7 @@ from django.db import models
 class Hotel(models.Model):
     hname=models.CharField(max_length=80)
     cname=models.CharField(max_length=80)
+    email=models.EmailField(max_length=80)
     cno=models.IntegerField()
     cin=models.DateTimeField()
     cout=models.DateTimeField()
