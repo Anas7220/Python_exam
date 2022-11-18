@@ -1,0 +1,80 @@
+<html>
+<head><title>Hotel Registration</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            font-size: 14px;
+            background-color: #fff;
+            background : #235789;
+        }
+
+        h1{
+            font-size: 36px;
+            color : #F5FF90;
+            font-weight: 400;
+        }
+
+        div {
+            height: 70vh;
+            display : flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        td{
+            color: white;
+            padding: 10px;
+        }
+
+        #button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+          }
+    </style>
+</head>
+<body bgcolor="lightpink">
+    <div>
+        <h1> Welcome to Hotel Registration Page</h1>
+        <h2 style="color:red">{{msg}}</h2>
+        <form action="{% url 'userinsert' %}" method='POST'>
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Hotel Name:</td>
+                    <td><input type='text' name='hname' required></td>
+                </tr>
+                <tr>
+                    <td>Customer Name:</td>
+                    <td><input type='text' name='cname' required></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type='email' name='email' required></td>
+                </tr>
+                <tr>
+                    <td>Contact Number:</td>
+                    <td><input type='tel' name='cno' required></td>
+                </tr>
+                <tr>
+                    <td>check-in:</td>
+                    <td><input type='date' name='cin' required></td>
+                </tr>
+                <tr>
+                    <td>check-out:</td>
+                    <td><input type='date' name='cout' required></td>
+                </tr>
+                <tr>
+                    <td><input id="button" type='submit' value='Register'></td>
+                </tr>
+        </form>
+        
+    </div>
+
+</html>
