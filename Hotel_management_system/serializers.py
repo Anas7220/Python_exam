@@ -1,5 +1,5 @@
 from rest_framework import serializers
-
+#For Api Creation
 class HotelSerializer(serializers.Serializer):
     hname=serializers.CharField(max_length=80)
     cname=serializers.CharField(max_length=80)

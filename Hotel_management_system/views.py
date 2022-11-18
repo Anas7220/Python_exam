@@ -4,7 +4,7 @@ from rest_framework.renderers import JSONRenderer
 from .models import *
 from django.http import HttpResponse, JsonResponse
 # Create your views here.
-
+#redirection to Homepage
 def home(request):
     return render(request,'Home.html')
 
@@ -23,7 +23,7 @@ def Hotel_details_list(request):
     serializer=HotelSerializer(user,many=True)
     
     return JsonResponse(serializer.data,safe=False)
-
+#Views for registration
 def userinsert(request):
     if request.method=='POST':
         hname=request.POST['hname']

@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+
+# Model For Hotel registration
 class Hotel(models.Model):
     hname=models.CharField(max_length=80)
     cname=models.CharField(max_length=80)
